@@ -113,7 +113,7 @@ export const WaveformCanvas: React.FC<WaveformCanvasProps> = ({ analyser, state 
       ctx.globalCompositeOperation = 'lighter'; // Additive blending for bioluminescent radiance
 
       const centerY = displayHeight * 0.5;
-      const baseAmplitude = displayHeight * 0.12 * (0.4 + energy * 1.8);
+      const baseAmplitude = displayHeight * 0.075 * (0.4 + energy * 1.8);
 
       // Wave configurations tuned for BRI Royal Blue & Cyan bioluminescence
       const waveLayers = [
