@@ -222,8 +222,10 @@ async function startServer() {
     const vite = await createServer({
       server: {
         middlewareMode: true,
-        hmr: process.env.DISABLE_HMR !== 'true',
-        watch: process.env.DISABLE_HMR === 'true' ? null : {},
+      // The hosted preview proxies HTTP but does not expose Vite's websocket endpoint.
+      // Disable HMR there to prevent repeated "WebSocket closed without opened" errors.
+      hmr: false,
+      watch: process.env.DISABLE_HMR === 'true' ? null : {},
       },
       appType: 'spa',
     });
