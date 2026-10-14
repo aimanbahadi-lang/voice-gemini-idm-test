@@ -168,7 +168,7 @@ export const WaveformCanvas: React.FC<WaveformCanvasProps> = ({ analyser, state 
         ctx.shadowColor = layer.color;
 
         const points: { x: number; y: number }[] = [];
-        const step = 8; // Smooth sampling step
+        const step = displayWidth < 640 ? 5 : 8; // Keep narrow screens smooth without oversized wave segments
 
         for (let x = 0; x <= displayWidth; x += step) {
           // Windowing envelope function (smooth bell curve towards screen edges)

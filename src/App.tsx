@@ -376,9 +376,9 @@ export default function App() {
       <WaveformCanvas analyser={analyserRef.current} state={state} />
 
       {/* OFFICIAL QLOLA BY BRI LOGO ON TOP OF THE WAVEFORM */}
-      <div className="absolute top-10 md:top-14 lg:top-16 inset-x-0 flex flex-col items-center justify-center pointer-events-none z-10 transition-all duration-700">
+      <div className="absolute inset-x-0 top-[max(1.25rem,env(safe-area-inset-top))] flex flex-col items-center justify-center px-4 pointer-events-none z-10 transition-all duration-700 sm:top-10 md:top-14 lg:top-16">
         <QlolaLogo
-          className="w-56 sm:w-64 md:w-80 lg:w-[420px]"
+          className="w-[min(72vw,14rem)] sm:w-64 md:w-80 lg:w-[420px]"
           glow={true}
           active={state === 'speaking' || state === 'listening'}
         />
