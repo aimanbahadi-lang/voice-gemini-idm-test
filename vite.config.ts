@@ -7,7 +7,18 @@ export default defineConfig({
     hmr: false,
     watch: null,
   },
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'disable-preview-hmr-client',
+      transformIndexHtml: {
+        order: 'post',
+        handler(html) {
+          return html.replace(/<script[^>]+src=["']\/?@vite\/client["'][^>]*><\/script>/gi, '');
+        },
+      },
+    },
+  ],
   resolve: {
     dedupe: ['react', 'react-dom'],
   },
