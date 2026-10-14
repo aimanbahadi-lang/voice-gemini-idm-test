@@ -1,0 +1,6 @@
+{
+  "name": "Qlola Voice - Indonesian AI Waveform",
+  "description": "Voice-driven Gemini AI assistant featuring an ultra-minimalist bioluminescent waveform on black gradient blue for Qlola by BRI stage showcase.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
