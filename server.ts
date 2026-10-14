@@ -218,6 +218,13 @@ async function startServer() {
   const isProd = process.env.NODE_ENV === 'production';
 
   if (!isProd) {
+    // Hosted previews proxy HTTP but do not expose Vite's HMR WebSocket.
+    // Return an empty module for the injected client so it cannot retry a
+    // connection that the preview host cannot open.
+    app.get(['/__vite_ping', '/@vite/client'], (_req: Request, res: Response) => {
+      res.type('application/javascript').send('');
+    });
+
     const { createServer } = await import('vite');
     const vite = await createServer({
       server: {
