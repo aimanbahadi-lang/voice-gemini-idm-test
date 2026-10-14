@@ -2,6 +2,11 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  // Hosted previews proxy HTTP but do not expose Vite's HMR WebSocket.
+  server: {
+    hmr: false,
+    watch: null,
+  },
   plugins: [react()],
   resolve: {
     dedupe: ['react', 'react-dom'],
